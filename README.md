@@ -1,6 +1,6 @@
-Project requirements
+# Project requirements
 
-General Requirements:
+## General Requirements:
 * "An application that will keep track of how much food they have throughout the day"
     * Inventory of different ingredients. Their available quantity and prices per unit - "Ingredients" model
     * List of the restaurants -Menu Items- and price for each item. "MenuItems" model
@@ -28,3 +28,6 @@ Key points:
     * Info of total cost of inventory
     * Purchases that have been made
     * Hows much inventory needs a re-stock
+
+
+## Overview of requirements
