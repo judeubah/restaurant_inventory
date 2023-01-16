@@ -31,3 +31,15 @@ Key points:
 
 
 ## Overview of requirements
+* Inventory sales app via DJANGO
+* Users can log in, log out, sign up and must be logged in to see anything other than the login page
+* Users can create items for the menu
+* Users can add ingrdients to the restaurant's inventory
+    * Users can also update their quantities
+* Users can add different recipe requirements for each menu item
+* Users can record purchases of menu items that are within the inventory
+* Users can view:
+    1. Current Inventory
+    2. Menu items
+        1. Ingredients of a particular Menu Item
+    3. A log of all purchases made
