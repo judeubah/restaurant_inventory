@@ -1,0 +1,29 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+
+<h2>Menu Items</h2>
+<table id="menu-table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stars</th>
+        <th>Modify</th>
+    </tr>
+    {% for item in menuitem_list %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.price }}</td>
+        <td>{% for star in item.iterable_stars %}*{% endfor %}
+        </td>
+        <td>
+        <form action="{% url 'delete_menu_item' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+            
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

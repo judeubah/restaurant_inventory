@@ -1,0 +1,21 @@
+{% extends "inventory/base.html" %}
+{% block content %}
+<header>
+    <a href="{% url 'ingredients' %}">Ingredients</a>
+    <a href="{% url 'menu_items' %}">Menu items</a>
+</header>
+<table>
+    <tr>
+        <th>Number of purchases</th>
+        <th>Cost</th>
+        <th>Revenue</th>
+        <th>Profit</th>
+    </tr>
+    <tr>
+        <td>{{purchases|length}}</td>
+        <td>£{{cost}}</td>
+        <td>£{{revenue}}</td>
+        <td>£{{profit}}</td>
+    </tr>
+</table>
+{% endblock %}

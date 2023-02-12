@@ -1,0 +1,27 @@
+<head>
+
+
+    {% block head %}
+    {% endblock %}
+
+    <title>
+        Django Restaurant Inventory
+    </title>
+</head> 
+<body>
+    <a href="{% url 'home' %}"><h1>Welcome to Inventoria</h1></a>
+    <div>
+        
+        {% block content %}
+        {% endblock %}
+        <div>
+            {% for purchase in purchases %}
+            <p>{{purchase.menu_item.title}}</p>
+            <p>£{{purchase.menu_item.price}}</p>
+            <p>{{purchase.simplified_time}}</p>
+
+            {% endfor %}
+        </div>
+    </div>
+
+</body>

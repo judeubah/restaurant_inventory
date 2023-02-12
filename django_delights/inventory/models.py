@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.utils import timezone
+import calendar
 
 # Create your models here.
 class Ingredient(models.Model):
@@ -34,6 +35,9 @@ class MenuItem(models.Model):
         ordering=['star_rating']
     def __str__(self):
         return f"{self.title}"
+    
+    def iterable_stars(self):
+        return range(self.star_rating)
 
 class RecipeRequirement(models.Model):
     menu_item=models.ForeignKey(MenuItem, on_delete=models.CASCADE)
@@ -51,3 +55,10 @@ class Purchase(models.Model):
 
     def __str__(self):
         return f"{self.menu_item}: {self.timestamp}"
+
+    def simplified_time(self):
+        month=self.timestamp.month
+        return self.timestamp.strftime(f"%d-{calendar.month_name[month]}-%Y")
+    
+    class Meta:
+        ordering=["timestamp"]
