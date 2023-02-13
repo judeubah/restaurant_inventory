@@ -1,27 +1,45 @@
 <head>
-
-
+    
+    
     {% block head %}
     {% endblock %}
-
+    
     <title>
         Django Restaurant Inventory
     </title>
 </head> 
 <body>
-    <a href="{% url 'home' %}"><h1>Welcome to Inventoria</h1></a>
-    <div>
-        
-        {% block content %}
-        {% endblock %}
-        <div>
-            {% for purchase in purchases %}
-            <p>{{purchase.menu_item.title}}</p>
-            <p>£{{purchase.menu_item.price}}</p>
-            <p>{{purchase.simplified_time}}</p>
+    {% load static %}
 
-            {% endfor %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/base.css' %}">
+   <div class="blocks">
+        <div class="side_panel">
+            <header>
+                <a href="{% url 'home'%}"><h1>Inventory</h1></a>
+                <a href="{% url 'ingredients' %}">Ingredients</a>
+                <a href="{% url 'menu_items' %}">Menu Items</a>
+                <a href="{% url 'purchases' %}">Purchases</a>
+            </header>
         </div>
-    </div>
+       <div class="content">
+            {% for x in generic_info %}
+            {{x.name}}: {{x.value}}
+            {% endfor %}
+
+
+           {% block content %}
+           {% endblock %}
+       </div>
+       <div class="side_panel">
+          {% for p in recent_purchases %}
+          <div class="purchase_item">
+              <img src="{%static 'tick.jpg'%}" class="purchases-tick" alt="">
+              <p>{{p.menu_item}}</p>
+              <p>{{p.menu_item.price}}</p>
+              <p>{{p.simplified_time}}</p>
+          </div>
+          {% endfor %}
+       </div>
+   </div>
 
 </body>

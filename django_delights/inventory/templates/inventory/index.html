@@ -1,9 +1,19 @@
 {% extends "inventory/base.html" %}
+
 {% block content %}
-<header>
-    <a href="{% url 'ingredients' %}">Ingredients</a>
-    <a href="{% url 'menu_items' %}">Menu items</a>
-</header>
+<br>
+<br>
+<br>
+<div>
+    {{popular_items}}
+</div>
+
+{% for item in menu %}
+hi
+{% endfor %}
+
+{% endblock %}
+{% block right_panel %}
 <table>
     <tr>
         <th>Number of purchases</th>

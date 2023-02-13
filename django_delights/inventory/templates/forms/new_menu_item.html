@@ -1,0 +1,9 @@
+{% extends '../inventory/base.html' %}
+
+{% block content %}
+<h2>New Menu item</h2>
+<form method="post">
+    <div>{% csrf_token %} {{form.as_p}}</div>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
